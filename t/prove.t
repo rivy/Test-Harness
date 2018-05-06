@@ -1553,11 +1553,6 @@ for my $test (@SCHEDULE) {
                     $extra->($gotlog);
                 }
 
-                # adapt our expectations if HARNESS_PERL_SWITCHES is set
-                push @{ $runlog->[0][1]{switches} },
-                  shellwords( $ENV{HARNESS_PERL_SWITCHES} )
-                  if $ENV{HARNESS_PERL_SWITCHES};
-
                 unless (
                     is_deeply $gotlog, $runlog,
                     "$name: run results match"
